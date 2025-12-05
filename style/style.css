@@ -70,6 +70,22 @@ label {
   font-weight: 800;
   text-align: left;
 }
+.limpar-btn {
+  background: linear-gradient(45deg, #ff6b6b, #f5576c);
+  color: #fff;
+  border: none;
+  width: 100px;
+  padding: 7px 0px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.limpar-btn:hover {
+  box-shadow: 0 8px 15px rgb(255, 162, 162);
+  transform: translateY(-2px);
+}
 .converter-btn {
   background: linear-gradient(45deg, #667eea, #764ba2);
   color: #fff;

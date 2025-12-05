@@ -4,6 +4,7 @@ const amount = document.getElementById("amount"); //valor que o usuario vai inse
 const fromCurrency = document.getElementById("fromCurrency"); //o tipo de moeda que o usuario possui
 const toCurrency = document.getElementById("toCurrency"); //o tipo de moeda que o usuario quer converter
 const convertedAmount = document.getElementById("convertedAmount"); //recebe o resultado da conversão
+const limparBtn = document.getElementById("limparBtn");
 const converterBtn = document.getElementById("converterBtn");
 const loading = document.querySelector(".loading");
 const result = document.querySelector(".result");
@@ -14,7 +15,6 @@ const API_URL = "https://api.exchangerate-api.com/v4/latest/";
 
 //converte o dinheiro
 async function convertMoney() {
-  converterBtn.style.display = "none"; /*talvez não precise*/
   loading.style.display = "block";
   error.style.display = "none";
   result.style.display = "none";
@@ -43,7 +43,6 @@ async function convertMoney() {
         </div>
     
     `;
-    converterBtn.style.display = "block"; /*talvez não precise*/
   } catch (err) {
     error.style.display = "block";
     error.innerHTML = `Falha ao converter moeda! Tente novamente`;
@@ -51,8 +50,14 @@ async function convertMoney() {
   loading.style.display = "none";
 }
 
-//Evento assim que o botão submit é clicado
+//Evento assim que o botão converter moeda é clicado
 form.addEventListener("submit", function (event) {
   event.preventDefault(); //não reinicia/limpa o formulario
   convertMoney();
 });
+
+function limpar() {
+  amount.value = "";
+  convertedAmount.value = "";
+  result.style.display = "none";
+}
